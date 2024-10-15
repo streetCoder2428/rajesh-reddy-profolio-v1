@@ -3,6 +3,7 @@ import "./footer.css";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { BsMedium } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -31,6 +32,9 @@ const Footer = () => {
         </a>
         <a href="https://github.com/streetCoder2428">
           <BsGithub />
+        </a>
+        <a href="https://www.instagram.com/code4app/">
+          <BsInstagram />
         </a>
         <a href="https://medium.com/@k.rajeshreddy2428">
           <BsMedium />

@@ -2,6 +2,7 @@ import React from "react";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { BsMedium } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 
 const HeaderSocials = () => {
   return (
@@ -17,6 +18,12 @@ const HeaderSocials = () => {
         target="_blank"
         rel="noreferrer">
         <BsGithub />
+      </a>
+      <a
+        href="https://www.instagram.com/code4app/"
+        target="_blank"
+        rel="noreferrer">
+        <BsInstagram />
       </a>
       <a
         href="https://medium.com/@k.rajeshreddy2428"

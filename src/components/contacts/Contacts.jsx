@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./contacts.css";
 import { MdOutlineEmail } from "react-icons/md";
-import { useRef } from "react";
-// import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser"; // Import EmailJS
 
 const Contacts = () => {
-  const form = useRef();
+  const form = useRef(); // Create a ref for the form
 
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
+  const sendEmail = (e) => {
+    e.preventDefault(); // Prevent default form submission
 
-  //   emailjs.sendForm('service_kpzxgqz', 'template_kk9ipl8', form.current, 'uKELRhBOpArKOozDJ')
-  //   e.target.reset()
+    emailjs
+      .sendForm(
+        "service_3ba3wyr", // Your EmailJS service ID
+        "template_1efaie8", // Your EmailJS template ID
+        form.current, // Reference to the form
+        "l4D22iUdOl4HQxXMD" // Your EmailJS public API key (User ID)
+      )
+      .then((result) => {
+        console.log(result.text);
+        alert("Message sent successfully!");
+      })
+      .catch((error) => {
+        console.log(error.text);
+        alert("Failed to send message. Please try again.");
+      });
 
-  // }
+    e.target.reset(); // Reset the form fields after submission
+  };
 
   return (
     <section id="contacts">
@@ -30,20 +43,20 @@ const Contacts = () => {
           </article>
         </div>
 
-        <form ref={form}>
+        <form ref={form} onSubmit={sendEmail}>
           <input
             type="text"
             name="name"
             placeholder="Your Full Name"
             required
-          />{" "}
-          {/* client side validation */}
+          />
           <input type="email" name="email" placeholder="Your Email" required />
           <textarea
             name="message"
             rows="7"
             placeholder="Your Message"
-            required></textarea>
+            required
+          />
           <button type="submit" className="btn btn-primary">
             Send Message
           </button>
